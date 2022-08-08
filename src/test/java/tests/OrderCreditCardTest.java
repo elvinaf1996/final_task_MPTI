@@ -1,11 +1,13 @@
 package tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import pages.CreditCardPage;
 import pages.HomePage;
 
-
+@DisplayName("Проверка работы формы заказа кредитной карты ")
 public class OrderCreditCardTest extends BaseTest {
 
     private String correctFullName = "Тестов Тест Тестович";
@@ -24,7 +26,8 @@ public class OrderCreditCardTest extends BaseTest {
     private String consentToTheProcessingOfPersonalDataHint = "Установите этот флажок";
 
     @Test
-    @Description("Проверка наличия подсказки при написании неполного имени")
+    @DisplayName("Проверка наличия подсказки при написании неполного имени")
+    @Story("Проверки блока \"ФИО\"")
     public void chooseHaveHintWithNotFullName(){
 
         HomePage homePage = new HomePage();
@@ -39,7 +42,8 @@ public class OrderCreditCardTest extends BaseTest {
     }
 
     @Test
-    @Description("Проверка наличия подсказки при написании имени латинскими буквами")
+    @DisplayName("Проверка наличия подсказки при написании имени латинскими буквами")
+    @Story("Проверки блока \"ФИО\"")
     public void chooseHaveHintWithNameNotCyrillic(){
 
         HomePage homePage = new HomePage();
@@ -54,7 +58,8 @@ public class OrderCreditCardTest extends BaseTest {
     }
 
     @Test
-    @Description("Проверка наличия подсказки при написании неполного номера телефона")
+    @DisplayName("Проверка наличия подсказки при написании неполного номера телефона")
+    @Story("Проверки блока \"Мобильный телефон\"")
     public void chooseHaveHintWithNotFullMobilePhone(){
 
         HomePage homePage = new HomePage();
@@ -69,7 +74,8 @@ public class OrderCreditCardTest extends BaseTest {
     }
 
     @Test
-    @Description("Проверка наличия подсказки при вводе некорректном email")
+    @DisplayName("Проверка наличия подсказки при вводе некорректном email")
+    @Story("\"Проверки блока \"Мобильный телефон\"")
     public void chooseHaveHintWithIncorrectEmail(){
 
         HomePage homePage = new HomePage();
@@ -84,7 +90,8 @@ public class OrderCreditCardTest extends BaseTest {
     }
 
     @Test
-    @Description("Проверка наличия подсказки при отсутствии даты рождения")
+    @DisplayName("Проверка наличия подсказки при отсутствии даты рождения")
+    @Story("\"Проверки блока \"Дата рождения\"")
     public void chooseHaveHintWithoutDateOfBirthday(){
 
         HomePage homePage = new HomePage();
@@ -101,7 +108,8 @@ public class OrderCreditCardTest extends BaseTest {
     }
 
     @Test
-    @Description("Проверка наличия согласия на обработку ПД")
+    @DisplayName("Проверка наличия согласия на обработку ПД")
+    @Story("Проверки чек-бокса \"Согласие на обработку ПДД\"")
     public void chooseHaveHintConsentToTheProcessingOfPersonalData(){
 
         HomePage homePage = new HomePage();
@@ -110,6 +118,7 @@ public class OrderCreditCardTest extends BaseTest {
 
         CreditCardPage creditCardPage = new CreditCardPage();
         creditCardPage.deleteСonsentToTheProcessingOfPersonalData()
+                .sendDataForCardOrder()
                 .checkСonsentToTheProcessingOfPersonalDataHint(consentToTheProcessingOfPersonalDataHint);
     }
 
