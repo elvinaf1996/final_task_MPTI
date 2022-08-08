@@ -1,20 +1,19 @@
 package tests;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import pages.CreditCardPage;
 import pages.HomePage;
 
-@DisplayName("Проверка работы формы заказа кредитной карты ")
+@DisplayName("Проверка работы формы заказа кредитной карты")
 public class OrderCreditCardTest extends BaseTest {
 
     private String correctFullName = "Тестов Тест Тестович";
     private String notFullName = "Тест";
     private String fullNameInEnglish = "Testov Test Testovich";
-    private String dateOfBirthday = "09.12.1996";
-    private String correctPhoneNumber = "9199199999";
+    private String correctDateOfBirthday = "09.12.1996";
+    private String incorrectDateOfBirthday = "09.12";
+    private String correctPhoneNumber = "999 999-99-99";
     private String incorrectPhoneNumber = "919919";
     private String correctEmail = "test@test.ru";
     private String incorrectEmail = "test@test";
@@ -24,11 +23,12 @@ public class OrderCreditCardTest extends BaseTest {
     private String mobilePhoneHint = "Введите верный номер телефона";
     private String emailHint = "Введите верный электронный адрес";
     private String consentToTheProcessingOfPersonalDataHint = "Установите этот флажок";
+    private String hintOfNeedToConfirmTheNumber = "Подтвердите номер телефона";
+    private String sendMessageText = "Код подтверждения отправлен на номер";
 
     @Test
-    @DisplayName("Проверка наличия подсказки при написании неполного имени")
-    @Story("Проверки блока \"ФИО\"")
-    public void chooseHaveHintWithNotFullName(){
+    @DisplayName("Наличие подсказки при написании неполного имени")
+    public void haveHintWithNotFullNameTest(){
 
         HomePage homePage = new HomePage();
         homePage.openPage()
@@ -42,9 +42,8 @@ public class OrderCreditCardTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Проверка наличия подсказки при написании имени латинскими буквами")
-    @Story("Проверки блока \"ФИО\"")
-    public void chooseHaveHintWithNameNotCyrillic(){
+    @DisplayName("Наличие подсказки при написании имени латинскими буквами")
+    public void haveHintWithNameNotCyrillicTest(){
 
         HomePage homePage = new HomePage();
         homePage.openPage()
@@ -58,9 +57,8 @@ public class OrderCreditCardTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Проверка наличия подсказки при написании неполного номера телефона")
-    @Story("Проверки блока \"Мобильный телефон\"")
-    public void chooseHaveHintWithNotFullMobilePhone(){
+    @DisplayName("Наличия подсказки при написании неполного номера телефона")
+    public void haveHintWithNotFullMobilePhoneTest(){
 
         HomePage homePage = new HomePage();
         homePage.openPage()
@@ -74,9 +72,8 @@ public class OrderCreditCardTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Проверка наличия подсказки при вводе некорректном email")
-    @Story("\"Проверки блока \"Мобильный телефон\"")
-    public void chooseHaveHintWithIncorrectEmail(){
+    @DisplayName("Наличия подсказки при вводе некорректного email")
+    public void haveHintWithIncorrectEmailTest(){
 
         HomePage homePage = new HomePage();
         homePage.openPage()
@@ -90,9 +87,8 @@ public class OrderCreditCardTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Проверка наличия подсказки при отсутствии даты рождения")
-    @Story("\"Проверки блока \"Дата рождения\"")
-    public void chooseHaveHintWithoutDateOfBirthday(){
+    @DisplayName("Наличие подсказки при неполной дате рождения")
+    public void haveHintWithoutDateOfBirthdayTest(){
 
         HomePage homePage = new HomePage();
         homePage.openPage()
@@ -100,17 +96,14 @@ public class OrderCreditCardTest extends BaseTest {
 
         CreditCardPage creditCardPage = new CreditCardPage();
         creditCardPage
-                .addFullName(correctFullName)
-                .addMobilePhone(correctPhoneNumber)
-                .addEmail(correctEmail)
+                .addBirthdayDate(incorrectDateOfBirthday)
                 .sendDataForCardOrder()
                 .checkDateOfBirthdayHint(dateOfBirthdayHint);
     }
 
     @Test
-    @DisplayName("Проверка наличия согласия на обработку ПД")
-    @Story("Проверки чек-бокса \"Согласие на обработку ПДД\"")
-    public void chooseHaveHintConsentToTheProcessingOfPersonalData(){
+    @DisplayName("Наличие подсказки на обязательное поле: согласие на обработку ПД")
+    public void haveHintConsentToTheProcessingOfPersonalDataTest(){
 
         HomePage homePage = new HomePage();
         homePage.openPage()
@@ -121,5 +114,22 @@ public class OrderCreditCardTest extends BaseTest {
                 .sendDataForCardOrder()
                 .checkСonsentToTheProcessingOfPersonalDataHint(consentToTheProcessingOfPersonalDataHint);
     }
+
+    @Test
+    @DisplayName("Запрос кода из смс при отправки корректных данных")
+    public void requestCodeFromSmsWithCorrectDataTest() {
+        HomePage homePage = new HomePage();
+        homePage.openPage()
+                .goToCreditCardPage();
+
+        CreditCardPage creditCardPage = new CreditCardPage();
+        creditCardPage.addEmail(correctEmail)
+                .addMobilePhone(correctPhoneNumber)
+                .addFullName(correctFullName)
+                .addBirthdayDate(correctDateOfBirthday)
+                .sendDataForCardOrder()
+                .checkHintOfNeedToConfirmTheNumber(hintOfNeedToConfirmTheNumber, sendMessageText, correctPhoneNumber);
+    }
+
 
 }

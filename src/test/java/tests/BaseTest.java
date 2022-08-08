@@ -22,6 +22,19 @@ public abstract class BaseTest {
         Configuration.browserSize = "1920x1080";
     }
 
+//    @Before //для раскрутки на github action
+//    public void setUp() {
+//        WebDriverManager.chromedriver().setup();
+//        Configuration.browser = "chrome";
+//        Configuration.driverManagerEnabled = true;
+//        Configuration.browserSize = "1920x1080";
+//        Configuration.remote = "http://localhost:4444/wd/hub";
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("enableVNC", true);
+//        capabilities.setCapability("enableVideo", true);
+//        Configuration.browserCapabilities = capabilities;
+//    }
+
     @After
     public void turnDown() {
         Selenide.closeWebDriver();

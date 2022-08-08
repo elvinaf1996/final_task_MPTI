@@ -7,7 +7,7 @@ on: push
 
 jobs:
   install_dependency_and_run_test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: "Скачиваем селеноид"
         run: curl -s https://aerokube.com/cm/bash  | bash
