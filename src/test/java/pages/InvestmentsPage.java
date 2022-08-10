@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -18,7 +19,10 @@ public class InvestmentsPage {
     private final By VK_ICON = By.cssSelector(".styled__TopDesktopFooter-sc-11zgo51-1 [aria-label=\"Vk\"]");
     private final By TELEGRAM_ICON = By.cssSelector(".styled__TopDesktopFooter-sc-11zgo51-1 [aria-label=\"Telegram\"]");
     private final By CLASSMATES_ICON = By.cssSelector(".styled__TopDesktopFooter-sc-11zgo51-1 [aria-label=\"Ok\"]");
+    private final By ELEMENT_LIST_ITEM = By.cssSelector("li.accordion__item");
+    private final By DROPDOWN_BOXES_WITH_TEXT = By.cssSelector("div.accordion__answer");
 
+    //проверка url сайта
     private void сheckLinkAddress(String linkAdress){
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
         assertEquals(linkAdress, currentUrl);
@@ -27,40 +31,51 @@ public class InvestmentsPage {
     @Step("Скачивание файла инструкции")
     public InvestmentsPage downloadInstructionsChecking(String instructionText,
                                                 String hyperlinkInstructions) throws FileNotFoundException {
-        $(INSTRUCTION_TEXT).shouldBe(Condition.visible, Duration.ofSeconds(10)).scrollTo()
+        $(INSTRUCTION_TEXT).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo()
                 .shouldHave(Condition.text(instructionText + " " + hyperlinkInstructions));
         $(HYPER_LINK).download();
         return this;
     }
 
-    @Step("Скачивание файла  информацией о тарифе")
+    @Step("Скачивание файла с информацией о тарифе")
     public InvestmentsPage downloadInformationAboutRateChecking() throws FileNotFoundException {
         $(LINK_TO_DOWNLOAD_INFORMATION_ABOUT_RATE).scrollTo().download();
         return this;
     }
 
-    @Step("Переход на сайт вк")
+    @Step("Переход на сайт вк: {0}")
     public InvestmentsPage goToWebsiteVk(String linkAdress){
-        $(VK_ICON).shouldBe(Condition.visible, Duration.ofSeconds(10)).scrollTo().click();
+        $(VK_ICON).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().click();
         switchTo().window(1);
         сheckLinkAddress(linkAdress);
         return this;
     }
 
-    @Step("Переход в телеграмм")
+    @Step("Переход в телеграмм: {0}")
     public InvestmentsPage goToWebsiteTelegram(String linkAdress){
-        $(TELEGRAM_ICON).shouldBe(Condition.visible, Duration.ofSeconds(10)).scrollTo().click();
+        $(TELEGRAM_ICON).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().click();
         switchTo().window(1);
         сheckLinkAddress(linkAdress);
         return this;
     }
 
-    @Step("Переход в одноклассники")
+    @Step("Переход в одноклассники: {0}")
     public InvestmentsPage goToWebsiteСlassmates(String linkAdress){
-        $(CLASSMATES_ICON).shouldBe(Condition.visible, Duration.ofSeconds(10)).scrollTo().click();
+        $(CLASSMATES_ICON).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().click();
         switchTo().window(1);
         сheckLinkAddress(linkAdress);
         return this;
     }
 
+    @Step("Проверяем, что каждый выпадающий список открывается и непустой (содержит текст)")
+    public InvestmentsPage checkingTheOperationOfTheDropdownList(){
+        $(ELEMENT_LIST_ITEM).shouldBe(Condition.visible, Duration.ofSeconds(15));
+        for(SelenideElement selenideElement : $$(ELEMENT_LIST_ITEM)){
+            selenideElement.scrollTo().click();
+            selenideElement.$(DROPDOWN_BOXES_WITH_TEXT)
+                    .shouldNotHave(Condition.empty)
+                    .shouldHave(Condition.attribute("style", "display: block;"));
+        }
+        return this;
+    }
 }

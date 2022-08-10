@@ -130,6 +130,4 @@ public class OrderCreditCardTest extends BaseTest {
                 .sendDataForCardOrder()
                 .checkHintOfNeedToConfirmTheNumber(hintOfNeedToConfirmTheNumber, sendMessageText, correctPhoneNumber);
     }
-
-
 }

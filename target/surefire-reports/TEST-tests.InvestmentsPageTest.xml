@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="tests.OrderCreditCardTest" time="184.098" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="tests.InvestmentsPageTest" time="190.359" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="webdriver.chrome.driver" value="C:\Users\elvin\.cache\selenium\chromedriver\win32\104.0.5112.79\chromedriver.exe"/>
@@ -60,98 +60,87 @@
     <property name="java.class.version" value="61.0"/>
     <property name="webdriver.http.factory" value="selenide-netty-client-factory"/>
   </properties>
-  <testcase name="haveHintWithIncorrectEmailTest" classname="tests.OrderCreditCardTest" time="28.322">
-    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 60524
+  <testcase name="openClassmatesLinkTest" classname="tests.InvestmentsPageTest" time="41.173">
+    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 60777
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-авг. 09, 2022 9:57:48 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+авг. 09, 2022 9:54:38 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-авг. 09, 2022 9:57:48 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+авг. 09, 2022 9:54:38 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 104, so returning the closest version found: 102
-авг. 09, 2022 9:57:48 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+авг. 09, 2022 9:54:38 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 104 of 102
+авг. 09, 2022 9:55:16 PM org.openqa.selenium.os.OsProcess destroy
+SEVERE: Unable to kill process Process[pid=10008, exitValue=1]
+]]></system-err>
+  </testcase>
+  <testcase name="checkingTheOperationOfTheDropdownListTest" classname="tests.InvestmentsPageTest" time="34.015">
+    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 59799
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+авг. 09, 2022 9:55:19 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+авг. 09, 2022 9:55:19 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 104, so returning the closest version found: 102
+авг. 09, 2022 9:55:19 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 104 of 102
+авг. 09, 2022 9:55:50 PM org.openqa.selenium.os.OsProcess destroy
+SEVERE: Unable to kill process Process[pid=10628, exitValue=1]
+]]></system-err>
+  </testcase>
+  <testcase name="openTelegramLinkTest" classname="tests.InvestmentsPageTest" time="29.189">
+    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 54809
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+авг. 09, 2022 9:55:53 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+авг. 09, 2022 9:55:53 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 104, so returning the closest version found: 102
+авг. 09, 2022 9:55:53 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 104 of 102
 ]]></system-err>
   </testcase>
-  <testcase name="haveHintWithNameNotCyrillicTest" classname="tests.OrderCreditCardTest" time="27.739">
-    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 58073
+  <testcase name="openVKLinkTest" classname="tests.InvestmentsPageTest" time="38.764">
+    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 54968
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-авг. 09, 2022 9:58:16 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+авг. 09, 2022 9:56:22 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-авг. 09, 2022 9:58:16 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+авг. 09, 2022 9:56:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 104, so returning the closest version found: 102
-авг. 09, 2022 9:58:16 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+авг. 09, 2022 9:56:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 104 of 102
+авг. 09, 2022 9:56:58 PM org.openqa.selenium.os.OsProcess destroy
+SEVERE: Unable to kill process Process[pid=11456, exitValue=1]
+]]></system-err>
+  </testcase>
+  <testcase name="downloadInformationAboutRateTest" classname="tests.InvestmentsPageTest" time="21.206">
+    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 51286
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+авг. 09, 2022 9:57:01 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+авг. 09, 2022 9:57:01 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 104, so returning the closest version found: 102
+авг. 09, 2022 9:57:01 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 104 of 102
 ]]></system-err>
   </testcase>
-  <testcase name="haveHintWithNotFullMobilePhoneTest" classname="tests.OrderCreditCardTest" time="29.779">
-    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 50671
+  <testcase name="downloadInstructionsTest" classname="tests.InvestmentsPageTest" time="25.986">
+    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 52064
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-авг. 09, 2022 9:58:45 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+авг. 09, 2022 9:57:23 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-авг. 09, 2022 9:58:46 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+авг. 09, 2022 9:57:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 104, so returning the closest version found: 102
-авг. 09, 2022 9:58:46 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-INFO: Found CDP implementation for version 104 of 102
-авг. 09, 2022 9:59:11 PM org.openqa.selenium.os.OsProcess destroy
-SEVERE: Unable to kill process Process[pid=4528, exitValue=1]
-]]></system-err>
-  </testcase>
-  <testcase name="requestCodeFromSmsWithCorrectDataTest" classname="tests.OrderCreditCardTest" time="30.754">
-    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 55456
-Only local connections are allowed.
-Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully.
-авг. 09, 2022 9:59:14 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected upstream dialect: W3C
-авг. 09, 2022 9:59:14 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find an exact match for CDP version 104, so returning the closest version found: 102
-авг. 09, 2022 9:59:14 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-INFO: Found CDP implementation for version 104 of 102
-авг. 09, 2022 9:59:42 PM org.openqa.selenium.os.OsProcess destroy
-SEVERE: Unable to kill process Process[pid=13760, exitValue=1]
-]]></system-err>
-  </testcase>
-  <testcase name="haveHintConsentToTheProcessingOfPersonalDataTest" classname="tests.OrderCreditCardTest" time="19.955">
-    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 64250
-Only local connections are allowed.
-Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully.
-авг. 09, 2022 9:59:45 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected upstream dialect: W3C
-авг. 09, 2022 9:59:45 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find an exact match for CDP version 104, so returning the closest version found: 102
-авг. 09, 2022 9:59:45 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-INFO: Found CDP implementation for version 104 of 102
-]]></system-err>
-  </testcase>
-  <testcase name="haveHintWithNotFullNameTest" classname="tests.OrderCreditCardTest" time="24.348">
-    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 49979
-Only local connections are allowed.
-Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully.
-авг. 09, 2022 10:00:07 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected upstream dialect: W3C
-авг. 09, 2022 10:00:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find an exact match for CDP version 104, so returning the closest version found: 102
-авг. 09, 2022 10:00:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-INFO: Found CDP implementation for version 104 of 102
-]]></system-err>
-  </testcase>
-  <testcase name="haveHintWithoutDateOfBirthdayTest" classname="tests.OrderCreditCardTest" time="23.122">
-    <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 64700
-Only local connections are allowed.
-Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully.
-авг. 09, 2022 10:00:30 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected upstream dialect: W3C
-авг. 09, 2022 10:00:30 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find an exact match for CDP version 104, so returning the closest version found: 102
-авг. 09, 2022 10:00:30 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+авг. 09, 2022 9:57:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 104 of 102
 ]]></system-err>
   </testcase>

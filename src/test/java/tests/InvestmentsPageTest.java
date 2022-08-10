@@ -71,4 +71,14 @@ public class InvestmentsPageTest extends BaseTest{
         investmentsPage.goToWebsiteСlassmates(classmatesLinkAdress);
     }
 
+    @Test
+    @DisplayName("Проверка работы выпадающего списка")
+    public void checkingTheOperationOfTheDropdownListTest(){
+        HomePage homePage = new HomePage();
+        homePage.openPage()
+                .goToSection(nameSection);
+        InvestmentsPage investmentsPage = new InvestmentsPage();
+        investmentsPage.checkingTheOperationOfTheDropdownList();
+    }
+
 }

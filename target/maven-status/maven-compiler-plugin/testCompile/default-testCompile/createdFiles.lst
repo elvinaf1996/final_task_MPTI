@@ -1,5 +1,9 @@
-tests\OrderCreditCardTest.class
-tests\BaseTest.class
 pages\CreditCardPage.class
+pages\InvestmentsPage.class
+tests\InvestmentsPageTest.class
 config\ProjectConfig.class
 pages\HomePage.class
+tests\OrderCreditCardTest.class
+pages\CreditHolidaysPage.class
+tests\BaseTest.class
+tests\CreditHolidaysTest.class

@@ -13,6 +13,8 @@ public class HomePage {
 
     private final By BUTTONS = By.cssSelector("a[data-testid=\"button\"]>[data-testid=\"flexbox\"]");
     private final By SECTIONS = By.cssSelector(".LinkWrapper-sc-a7l7fm-0.eaxjcO.styled__MenuItem-sc-ip06ne-6");
+    private final By FOOTER_SECTION = By.cssSelector(".styled__NavigationBlockItem-sc-doagu6-1 [data-testid=\"text\"]");
+    private final By HINTS_UNDER_SECTIONS = By.cssSelector("a[data-testid=\"link\"]>.Wrapper-sc-1vydk7-0.icoeUX");
 
     @Step("Открываем главную страницу")
     public HomePage openPage() {
@@ -26,9 +28,28 @@ public class HomePage {
         return this;
     }
 
-    @Step("Перейти в раздел: {0}")
+    @Step("Перейти в раздел из шапки сайта: {0}")
     public HomePage goToSection(String nameSection){
         $$(SECTIONS).findBy(Condition.text(nameSection)).shouldBe(Condition.visible, Duration.ofSeconds(15)).click();
+        return this;
+    }
+
+    @Step("Перейти в раздел из футера: {0}")
+    public HomePage goToFooterSections(String footerSectionName){
+        $$(FOOTER_SECTION).findBy(Condition.text(footerSectionName)).scrollTo()
+                .shouldBe(Condition.visible, Duration.ofSeconds(15)).click();
+        return this;
+    }
+
+    @Step("Навести на раздел из шапки сайта: {0}")
+    public HomePage pointToSection(String nameSection){
+        $$(SECTIONS).findBy(Condition.text(nameSection)).shouldBe(Condition.visible, Duration.ofSeconds(15)).hover();
+        return this;
+    }
+
+    @Step("Выбираем подсказку снизу секции: {0}")
+    public HomePage selectItemFromHint(String itemFromHint){
+        $$(HINTS_UNDER_SECTIONS).findBy(Condition.text(itemFromHint)).click();
         return this;
     }
 }
