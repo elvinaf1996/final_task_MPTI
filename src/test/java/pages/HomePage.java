@@ -24,26 +24,25 @@ public class HomePage {
 
     @Step("Нажимаем кнопку \"подробнее\"")
     public HomePage goToCreditCardPage(){
-        $$(BUTTONS).first().shouldBe(Condition.visible, Duration.ofSeconds(15)).click();
+        $$(BUTTONS).first().click();
         return this;
     }
 
     @Step("Перейти в раздел из шапки сайта: {0}")
     public HomePage goToSection(String nameSection){
-        $$(SECTIONS).findBy(Condition.text(nameSection)).shouldBe(Condition.visible, Duration.ofSeconds(15)).click();
+        $$(SECTIONS).findBy(Condition.text(nameSection)).click();
         return this;
     }
 
     @Step("Перейти в раздел из футера: {0}")
     public HomePage goToFooterSections(String footerSectionName){
-        $$(FOOTER_SECTION).findBy(Condition.text(footerSectionName)).scrollTo()
-                .shouldBe(Condition.visible, Duration.ofSeconds(15)).click();
+        $$(FOOTER_SECTION).findBy(Condition.text(footerSectionName)).scrollTo().click();
         return this;
     }
 
     @Step("Навести на раздел из шапки сайта: {0}")
     public HomePage pointToSection(String nameSection){
-        $$(SECTIONS).findBy(Condition.text(nameSection)).shouldBe(Condition.visible, Duration.ofSeconds(15)).hover();
+        $$(SECTIONS).findBy(Condition.text(nameSection)).hover();
         return this;
     }
 

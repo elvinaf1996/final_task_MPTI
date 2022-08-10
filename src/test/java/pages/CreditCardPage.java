@@ -26,31 +26,31 @@ public class CreditCardPage {
 
     @Step("Вводим ФИО: {0}")
     public CreditCardPage addFullName(String name){
-        $(FIELD_FOR_FULL_NAME).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().sendKeys(name);
+        $(FIELD_FOR_FULL_NAME).scrollTo().sendKeys(name);
         return this;
     }
 
     @Step("Вводим дату рождения: {0}")
     public CreditCardPage addBirthdayDate(String date){
-        $(FIELD_FOR_DATE_OF_BIRTHDAY).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().sendKeys(date);
+        $(FIELD_FOR_DATE_OF_BIRTHDAY).scrollTo().sendKeys(date);
         return this;
     }
 
     @Step("Вводим номер телефона: {0}")
     public CreditCardPage addMobilePhone(String numberOfPhone){
-        $(FIELD_FOR_MOBILE_PHONE).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().sendKeys(numberOfPhone);
+        $(FIELD_FOR_MOBILE_PHONE).scrollTo().sendKeys(numberOfPhone);
         return this;
     }
 
     @Step("Вводим e-mail: {0}")
     public CreditCardPage addEmail(String email){
-        $(FIELD_FOR_EMAIL).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().sendKeys(email);
+        $(FIELD_FOR_EMAIL).scrollTo().sendKeys(email);
         return this;
     }
 
     @Step("Убираем согласие на обработку ПД")
     public CreditCardPage deleteСonsentToTheProcessingOfPersonalData(){
-        $$(CHECKBOXES_CONSENTS).first().shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().click();
+        $$(CHECKBOXES_CONSENTS).first().scrollTo().click();
         return this;
     }
 
@@ -94,7 +94,6 @@ public class CreditCardPage {
     public CreditCardPage checkHintOfNeedToConfirmTheNumber(String hintOfNeedToConfirmTheNumber,
                                                             String sendMessageText, String correctPhoneNumber){
         $(NEED_TO_CONFIRM_THE_NUMBER_HINT)
-                .shouldBe(Condition.visible, Duration.ofSeconds(10))
                 .shouldHave(Condition.text(hintOfNeedToConfirmTheNumber));
         $(SEND_MESSAGE_TEXT).shouldHave(Condition.text(sendMessageText + " +7 " + correctPhoneNumber));
         return this;

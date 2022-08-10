@@ -7,8 +7,6 @@ import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.Assert.assertEquals;
 
@@ -74,15 +72,14 @@ public class MortgageCalculatorPage {
 
     @Step("Выбираем программу кредитования: {0}")
     public MortgageCalculatorPage chooseALoanProgram(String nameALoanProgram){
-        $(LOAN_PROGRAM_SELECTION_BUTTON).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().click();
+        $(LOAN_PROGRAM_SELECTION_BUTTON).scrollTo().click();
         $$(LENDING_PROGRAMS).findBy(Condition.text(nameALoanProgram)).click();
         return this;
     }
 
     @Step("Вводим стоимость недвижимости: {0}")
     public MortgageCalculatorPage enterTheValueOfTheProperty(int realEstateValue){
-        setTheDesiredValueWithTheSlider(
-                $(INPUT_FIELD_COST_OF_REAL_ESTATE), realEstateValue, 0);
+        setTheDesiredValueWithTheSlider($(INPUT_FIELD_COST_OF_REAL_ESTATE), realEstateValue, 0);
         return this;
     }
 
@@ -96,15 +93,13 @@ public class MortgageCalculatorPage {
     @Step("Вводим срок кредита: {0}")
     public MortgageCalculatorPage enterTheTermOfTheLoan(int countOfYear){
         $(LOAN_TERM_ENTRY_FIELD).scrollTo();
-        setTheDesiredValueWithTheSlider(
-                $(LOAN_TERM_ENTRY_FIELD), countOfYear, 2);
+        setTheDesiredValueWithTheSlider($(LOAN_TERM_ENTRY_FIELD), countOfYear, 2);
         return this;
     }
 
     @Step("Проверяем сумму кредита")
     public MortgageCalculatorPage loanAmountCheck(int realEstateValue, int downPaymentAmount){
-        int creditAmount = Integer.parseInt(($$(LOAN_OPTIONS).get(2).text()
-                .replaceAll("\\D+","")));
+        int creditAmount = Integer.parseInt(($$(LOAN_OPTIONS).get(2).text().replaceAll("\\D+","")));
         assertEquals(realEstateValue - downPaymentAmount, creditAmount);
         return this;
     }
@@ -113,12 +108,11 @@ public class MortgageCalculatorPage {
     public MortgageCalculatorPage checkingTheMonthlyPayment(int realEstateValue, int downPaymentAmount, int countOfYear){
         int creditAmount = realEstateValue - downPaymentAmount;
         double monthlyRate = Double.parseDouble(
-                $$(LOAN_OPTIONS).get(1).getText()
-                        .replace("%","").replace(",", ".")) / 1200;
-        int monthlyPaymentAmount = Integer.parseInt(
-                $$(LOAN_OPTIONS).get(0).getText().replaceAll("\\D+",""));
-        assertEquals(calculationOfTheAmountOfTheMonthlyPayment
-                        (creditAmount, monthlyRate, countOfYear),
+                $$(LOAN_OPTIONS).get(1).getText().replace("%","")
+                        .replace(",", ".")) / 1200;
+        int monthlyPaymentAmount = Integer.parseInt($$(LOAN_OPTIONS).get(0).getText()
+                .replaceAll("\\D+",""));
+        assertEquals(calculationOfTheAmountOfTheMonthlyPayment(creditAmount, monthlyRate, countOfYear),
                 monthlyPaymentAmount);
         return this;
     }

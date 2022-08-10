@@ -21,36 +21,36 @@ public class CreditHolidaysPage {
     private final By TELEPHONE_FOR_COMMUNICATION = By.cssSelector(".styled__ContactsInfo-sc-1oc0793-5 [target=\"_self\"]");
 
     //проверка url сайта
-    private void сheckLinkAddress(String linkAdress){
+    private void сheckLinkAddress(String linkAddress){
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        assertEquals(linkAdress, currentUrl);
+        assertEquals(linkAddress, currentUrl);
     }
 
     @Step("Скачивание файла с информацией о необходимых документах")
     public CreditHolidaysPage сheckingTheDownloadOfAFileWithInformationAboutDocuments() throws FileNotFoundException {
-        $$(LINKS_IN_TEXT).first().shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().download();
+        $$(LINKS_IN_TEXT).first().scrollTo().download();
         return this;
     }
 
     @Step("Проверка появления информации о сумме кредита")
     public CreditHolidaysPage checkingInformationAboutTheAmountOfTheLoan(){
-        $$(LINKS_IN_TEXT).last().shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().click();
-        $(ABOUT_MAX_SUM_MODAL).shouldBe(Condition.visible, Duration.ofSeconds(15));
+        $$(LINKS_IN_TEXT).last().scrollTo().click();
+        $(ABOUT_MAX_SUM_MODAL).shouldBe(Condition.visible);
         return this;
     }
 
     @Step("Выбираем тип кредита: {0}")
     public CreditHolidaysPage chooseTheTypeOfLoan(String nameTypeOfLoan){
-        $(LIST_BUTTON_TO_SELECT_CREDIT).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().click();
+        $(LIST_BUTTON_TO_SELECT_CREDIT).scrollTo().click();
         $$(DROPDOWN_LIST_ITEM).findBy(Condition.text(nameTypeOfLoan)).click();
         return this;
     }
 
     @Step("Проверяем необходимость авторизации")
-    public CreditHolidaysPage checkingTheNeedForAuthorization(String linkAdress){
+    public CreditHolidaysPage checkingTheNeedForAuthorization(String linkAddress){
         $(LOG_IN_BUTTON).click();
         switchTo().window(1);
-        сheckLinkAddress(linkAdress);
+        сheckLinkAddress(linkAddress);
         return this;
     }
 

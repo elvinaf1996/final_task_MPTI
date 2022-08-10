@@ -20,7 +20,7 @@ public abstract class BaseTest {
 //        Configuration.driverManagerEnabled = true;
 //        Configuration.headless = false;
 //        Configuration.browserSize = "1920x1080";
-//        Configuration.timeout = 15;
+//        Configuration.timeout = 20000;
 //    }
 
     @Before //для работы на виртуальной машине
@@ -29,7 +29,7 @@ public abstract class BaseTest {
         Configuration.browser = "chrome";
         Configuration.driverManagerEnabled = true;
         Configuration.browserSize = "1920x1080";
-        Configuration.timeout = 15000;
+        Configuration.timeout = 20000;
         Configuration.remote = "http://localhost:4444/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);

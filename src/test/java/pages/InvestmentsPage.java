@@ -23,16 +23,15 @@ public class InvestmentsPage {
     private final By DROPDOWN_BOXES_WITH_TEXT = By.cssSelector("div.accordion__answer");
 
     //проверка url сайта
-    private void сheckLinkAddress(String linkAdress){
+    private void сheckLinkAddress(String linkAddress){
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        assertEquals(linkAdress, currentUrl);
+        assertEquals(linkAddress, currentUrl);
     }
 
     @Step("Скачивание файла инструкции")
     public InvestmentsPage downloadInstructionsChecking(String instructionText,
                                                 String hyperlinkInstructions) throws FileNotFoundException {
-        $(INSTRUCTION_TEXT).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo()
-                .shouldHave(Condition.text(instructionText + " " + hyperlinkInstructions));
+        $(INSTRUCTION_TEXT).scrollTo().shouldHave(Condition.text(instructionText + " " + hyperlinkInstructions));
         $(HYPER_LINK).download();
         return this;
     }
@@ -45,7 +44,7 @@ public class InvestmentsPage {
 
     @Step("Переход на сайт вк: {0}")
     public InvestmentsPage goToWebsiteVk(String linkAdress){
-        $(VK_ICON).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().click();
+        $(VK_ICON).scrollTo().click();
         switchTo().window(1);
         сheckLinkAddress(linkAdress);
         return this;
@@ -53,7 +52,7 @@ public class InvestmentsPage {
 
     @Step("Переход в телеграмм: {0}")
     public InvestmentsPage goToWebsiteTelegram(String linkAdress){
-        $(TELEGRAM_ICON).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().click();
+        $(TELEGRAM_ICON).scrollTo().click();
         switchTo().window(1);
         сheckLinkAddress(linkAdress);
         return this;
@@ -61,7 +60,7 @@ public class InvestmentsPage {
 
     @Step("Переход в одноклассники: {0}")
     public InvestmentsPage goToWebsiteСlassmates(String linkAdress){
-        $(CLASSMATES_ICON).shouldBe(Condition.visible, Duration.ofSeconds(15)).scrollTo().click();
+        $(CLASSMATES_ICON).scrollTo().click();
         switchTo().window(1);
         сheckLinkAddress(linkAdress);
         return this;
@@ -69,7 +68,6 @@ public class InvestmentsPage {
 
     @Step("Проверяем, что каждый выпадающий список открывается и непустой (содержит текст)")
     public InvestmentsPage checkingTheOperationOfTheDropdownList(){
-        $(ELEMENT_LIST_ITEM).shouldBe(Condition.visible, Duration.ofSeconds(15));
         for(SelenideElement selenideElement : $$(ELEMENT_LIST_ITEM)){
             selenideElement.scrollTo().click();
             selenideElement.$(DROPDOWN_BOXES_WITH_TEXT)
