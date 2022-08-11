@@ -6,7 +6,6 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import java.io.FileNotFoundException;
-import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.Assert.assertEquals;
@@ -54,7 +53,7 @@ public class CreditHolidaysPage {
         return this;
     }
 
-    @Step("Проверяем наличие номера телефона для связи")
+    @Step("Проверяем наличие номера телефона для связи: {0}")
     public CreditHolidaysPage checkingForAPhoneNumber(String phoneNumber){
         $(TELEPHONE_FOR_COMMUNICATION).shouldHave(Condition.text(phoneNumber));
         return this;

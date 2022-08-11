@@ -1,9 +1,13 @@
 pages\CreditCardPage.class
 pages\InvestmentsPage.class
+pages\MortgageCalculatorPage.class
 tests\InvestmentsPageTest.class
 config\ProjectConfig.class
 pages\HomePage.class
+tests\MortgageCalculatorTest.class
 tests\OrderCreditCardTest.class
-pages\CreditHolidaysPage.class
 tests\BaseTest.class
 tests\CreditHolidaysTest.class
+tests\SalaryProjectTest.class
+pages\CreditHolidaysPage.class
+pages\SalaryProjectPage.class

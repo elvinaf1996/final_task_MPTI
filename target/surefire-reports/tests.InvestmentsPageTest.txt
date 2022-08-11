@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tests.InvestmentsPageTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 190.359 s - in tests.InvestmentsPageTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 158.274 s - in tests.InvestmentsPageTest

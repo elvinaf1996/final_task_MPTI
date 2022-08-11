@@ -23,7 +23,7 @@ public class InvestmentsPage {
     private final By DROPDOWN_BOXES_WITH_TEXT = By.cssSelector("div.accordion__answer");
 
     //проверка url сайта
-    private void сheckLinkAddress(String linkAddress){
+    private void checkLinkAddress(String linkAddress){
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
         assertEquals(linkAddress, currentUrl);
     }
@@ -43,18 +43,18 @@ public class InvestmentsPage {
     }
 
     @Step("Переход на сайт вк: {0}")
-    public InvestmentsPage goToWebsiteVk(String linkAdress){
+    public InvestmentsPage goToWebsiteVk(String linkAddress){
         $(VK_ICON).scrollTo().click();
         switchTo().window(1);
-        сheckLinkAddress(linkAdress);
+        checkLinkAddress(linkAddress);
         return this;
     }
 
     @Step("Переход в телеграмм: {0}")
-    public InvestmentsPage goToWebsiteTelegram(String linkAdress){
+    public InvestmentsPage goToWebsiteTelegram(String linkAddress){
         $(TELEGRAM_ICON).scrollTo().click();
         switchTo().window(1);
-        сheckLinkAddress(linkAdress);
+        checkLinkAddress(linkAddress);
         return this;
     }
 
@@ -62,7 +62,7 @@ public class InvestmentsPage {
     public InvestmentsPage goToWebsiteСlassmates(String linkAdress){
         $(CLASSMATES_ICON).scrollTo().click();
         switchTo().window(1);
-        сheckLinkAddress(linkAdress);
+        checkLinkAddress(linkAdress);
         return this;
     }
 
