@@ -35,6 +35,7 @@ public abstract class BaseTest {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
+
     }
 
     @After
